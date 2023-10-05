@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encriptador</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Raleway&display=swap"
+      rel="stylesheet"
+    />
+    <link href="assets/favicon.png" rel="shortcut icon" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <section class="encripter">
+          <h1 class="container__title">
+            Encriptador <span container__title--name>Irving Rodríguez</span>
+          </h1>
+          <div class="encripter__container">
+            <textarea
+              class="encripter__textarea"
+              placeholder="Ingrese el texto"
+            ></textarea>
+            <div class="buttons">
+              <button class="button">Encriptar</button>
+              <button class="button">Desencriptar</button>
+            </div>
+          </div>
+        </section>
+        <div class="result">
+          <div class="img__wait"></div>
+        </div>
+      </div>
+    </main>
+    <script src="scripts/script.js"></script>
+  </body>
+</html>
