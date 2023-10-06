@@ -47,4 +47,6 @@ export const acentos = {
   ú: "u",
 };
 
+export const spaces = ["%", "#", "$"];
+
 export const ids = ["ñ}", "%:", ";0", "^~"];

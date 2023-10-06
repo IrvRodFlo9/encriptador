@@ -1,4 +1,11 @@
-import { consonantes, vocals, signs, ids, acentos } from "../scripts/claves.js";
+import {
+  consonantes,
+  vocals,
+  signs,
+  ids,
+  acentos,
+  spaces,
+} from "../scripts/claves.js";
 
 const sortear = (n = 1) => {
   return Math.round(Math.random() * n);
@@ -53,11 +60,10 @@ const encriptarSignos = (text) => {
 };
 
 const encriptarExpacios = (text) => {
-  const claves = ["%", "#", "$"];
   let newText = text;
 
   while (newText.includes(" ")) {
-    newText = newText.replace(" ", claves[sortear(2)]);
+    newText = newText.replace(" ", spaces[sortear(2)]);
   }
 
   return newText;

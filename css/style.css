@@ -158,6 +158,17 @@ main {
   backdrop-filter: blur(40px);
 }
 
+.alert {
+  color: red;
+  backdrop-filter: blur(40px);
+  padding: 1rem;
+  width: 100%;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 1rem;
+}
+
 @media screen and (max-width: 786px) {
   .container {
     gap: 0rem;
