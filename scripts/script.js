@@ -1,57 +1,34 @@
 import encriptador from "./encriptador.js";
-import show from "./show.js";
-import verifyInput from "./verifyInput.js";
+import setShow from "./setShow.js";
 import desencriptar from "./desencriptador.js";
+import { ids } from "./claves.js";
 
 const textarea = document.querySelector(".encripter__textarea");
 const btnEncriptar = document.querySelector(".button--encriptar");
 const btnDesencriptar = document.querySelector(".button--desencriptar");
-const imgWait = document.querySelector(".img__wait");
 
-btnDesencriptar.classList.add("none");
-
-const encriptarMostrar = () => {
-  const text = textarea.value;
-  const textEncriptado = encriptador(text);
-
-  show(textEncriptado);
-
-  const canvas = document.querySelector(".result--show");
-  const btnCopy = document.querySelector(".btnCopy");
-
-  textarea.addEventListener("input", () => {
-    canvas.remove();
-    btnCopy.remove();
-    imgWait.classList.remove("none");
-  });
+const displayButtons = (e) => {
+  const isEmpty = e.target.value === "";
+  btnEncriptar.classList.toggle("none", isEmpty || isEncript(e.target.value));
+  btnDesencriptar.classList.toggle(
+    "none",
+    isEmpty || !isEncript(e.target.value)
+  );
 };
 
-const desencriptarMostrar = () => {
-  const text = textarea.value;
-  const textDesencriptado = desencriptar(text);
+const isEncript = (text) => ids.some((id) => text.includes(id));
 
-  show(textDesencriptado);
+const resultShow = (typeFunction) => {
+  let text = textarea.value;
+  text = typeFunction(text);
 
-  const canvas = document.querySelector(".result--show");
-  const btnCopy = document.querySelector(".btnCopy");
-
-  textarea.addEventListener("input", () => {
-    canvas.remove();
-    btnCopy.remove();
-    imgWait.classList.remove("none");
-  });
+  setShow(text, textarea);
 };
 
-const inputValid = (e) => {
-  if (verifyInput(e.target.value)) {
-    btnEncriptar.classList.add("none");
-    btnDesencriptar.classList.remove("none");
-  } else {
-    btnEncriptar.classList.remove("none");
-    btnDesencriptar.classList.add("none");
-  }
-};
-
-textarea.addEventListener("input", inputValid);
-btnEncriptar.addEventListener("click", encriptarMostrar);
-btnDesencriptar.addEventListener("click", desencriptarMostrar);
+textarea.addEventListener("input", displayButtons);
+btnEncriptar.addEventListener("click", () => {
+  resultShow(encriptador);
+});
+btnDesencriptar.addEventListener("click", () => {
+  resultShow(desencriptar);
+});

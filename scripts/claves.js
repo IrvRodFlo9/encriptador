@@ -40,13 +40,35 @@ export const signs = {
 };
 
 export const acentos = {
-  á: "a",
-  é: "e",
-  í: "i",
-  ó: "o",
-  ú: "u",
+  á: ["a", "a"],
+  é: ["e", "e"],
+  í: ["i", "i"],
+  ó: ["o", "o"],
+  ú: ["u", "u"],
 };
 
-export const spaces = ["%", "#", "$"];
+export const spaces = { " ": ["%", "#", "$"] };
 
-export const ids = ["ñ}", "%:", ";0", "^~"];
+export const ids = [
+  "ñ}",
+  "%:",
+  ";0",
+  "^~",
+  "00",
+  "XY",
+  "||",
+  "QW",
+  "HJ",
+  "..",
+  ";:",
+  "@;",
+  ":@",
+];
+
+export const steps = {
+  removeAcentos0: acentos,
+  encriptarConsonantes0: consonantes,
+  encriptarVocales0: vocals,
+  encriptarSignos0: signs,
+  encriptarExpacios0: spaces,
+};

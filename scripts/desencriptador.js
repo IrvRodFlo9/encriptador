@@ -1,11 +1,4 @@
-import {
-  consonantes,
-  vocals,
-  signs,
-  ids,
-  acentos,
-  spaces,
-} from "../scripts/claves.js";
+import { consonantes, vocals, signs, ids, spaces } from "../scripts/claves.js";
 
 const removeID = (text) => {
   let newText = text;
@@ -20,11 +13,13 @@ const removeID = (text) => {
 const desencriptarSpaces = (text) => {
   let newText = text;
 
-  spaces.forEach((clave) => {
-    while (newText.includes(clave)) {
-      newText = newText.replace(clave, " ");
-    }
-  });
+  for (let space in spaces) {
+    spaces[space].forEach((clave) => {
+      while (newText.includes(clave)) {
+        newText = newText.replace(clave, space);
+      }
+    });
+  }
 
   return newText;
 };

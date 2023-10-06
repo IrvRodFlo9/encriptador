@@ -1,90 +1,26 @@
-import {
-  consonantes,
-  vocals,
-  signs,
-  ids,
-  acentos,
-  spaces,
-} from "../scripts/claves.js";
+import { ids, steps } from "../scripts/claves.js";
 
 const sortear = (n = 1) => {
   return Math.round(Math.random() * n);
 };
 
-const removeAcentos = (text) => {
-  let newText = text;
-
-  for (let key in acentos) {
-    while (newText.includes(key)) {
-      newText = newText.replace(key, acentos[key]);
-    }
-  }
-
-  return newText;
-};
-
-const encriptarConsonantes = (text) => {
-  let newText = text;
-
-  for (let key in consonantes) {
-    while (newText.includes(key)) {
-      newText = newText.replace(key, consonantes[key][sortear()]);
-    }
-  }
-
-  return newText;
-};
-
-const encriptarVocales = (text) => {
-  let newText = text;
-
-  for (let key in vocals) {
-    while (newText.includes(key)) {
-      newText = newText.replace(key, vocals[key][sortear()]);
-    }
-  }
-
-  return newText;
-};
-
-const encriptarSignos = (text) => {
-  let newText = text;
-
-  for (let key in signs) {
-    while (newText.includes(key)) {
-      newText = newText.replace(key, signs[key][sortear()]);
-    }
-  }
-
-  return newText;
-};
-
-const encriptarExpacios = (text) => {
-  let newText = text;
-
-  while (newText.includes(" ")) {
-    newText = newText.replace(" ", spaces[sortear(2)]);
-  }
-
-  return newText;
-};
-
 const addID = (text) => {
-  return `${ids[sortear(3)]}${text}`;
+  return `${ids[sortear(12)]}${text}`;
 };
 
 const encriptador = (text) => {
   let textEncriptado = text.toLowerCase();
 
-  textEncriptado = removeAcentos(textEncriptado);
-
-  textEncriptado = encriptarConsonantes(textEncriptado);
-
-  textEncriptado = encriptarVocales(textEncriptado);
-
-  textEncriptado = encriptarSignos(textEncriptado);
-
-  textEncriptado = encriptarExpacios(textEncriptado);
+  Object.keys(steps).forEach((step) => {
+    Object.keys(steps[step]).forEach((key) => {
+      while (textEncriptado.includes(key)) {
+        textEncriptado = textEncriptado.replace(
+          key,
+          steps[step][key][sortear()]
+        );
+      }
+    });
+  });
 
   textEncriptado = addID(textEncriptado);
 
