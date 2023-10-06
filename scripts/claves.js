@@ -1,4 +1,4 @@
-export const consonantes = {
+const consonantes = {
   b: ["1A", "4I"],
   c: ["2A", "5I"],
   d: ["3A", "6I"],
@@ -23,7 +23,7 @@ export const consonantes = {
   z: ["6U", "7U"],
 };
 
-export const vocals = {
+const vocals = {
   a: ["sb", "df"],
   e: ["jk", "lm"],
   i: ["hw", "ct"],
@@ -31,7 +31,7 @@ export const vocals = {
   u: ["xn", "rz"],
 };
 
-export const signs = {
+const signs = {
   ".": ["+", "-"],
   ",": ["/", "*"],
   "?": ["(", ")"],
@@ -39,7 +39,7 @@ export const signs = {
   $: ["[", "]"],
 };
 
-export const acentos = {
+const acentos = {
   á: ["a", "a"],
   é: ["e", "e"],
   í: ["i", "i"],
@@ -47,14 +47,14 @@ export const acentos = {
   ú: ["u", "u"],
 };
 
-export const spaces = { " ": ["%", "#", "$"] };
+const spaces = { " ": ["%", "#", "$"] };
 
 export const ids = [
   "ñ}",
   "%:",
   ";0",
   "^~",
-  "00",
+  "0{",
   "XY",
   "||",
   "QW",
@@ -65,10 +65,17 @@ export const ids = [
   ":@",
 ];
 
-export const steps = {
-  removeAcentos0: acentos,
-  encriptarConsonantes0: consonantes,
-  encriptarVocales0: vocals,
-  encriptarSignos0: signs,
-  encriptarExpacios0: spaces,
+export const stepsEncriptar = {
+  removeAcentos: acentos,
+  encriptarConsonantes: consonantes,
+  encriptarVocales: vocals,
+  encriptarSignos: signs,
+  encriptarExpacios: spaces,
+};
+
+export const stepDesencriptar = {
+  desencriptarSpaces: spaces,
+  desencriptarSignos: signs,
+  desencriptarVocales: vocals,
+  desencriptarConsonantes: consonantes,
 };

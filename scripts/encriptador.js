@@ -1,4 +1,4 @@
-import { ids, steps } from "../scripts/claves.js";
+import { ids, stepsEncriptar } from "../scripts/claves.js";
 
 const sortear = (n = 1) => {
   return Math.round(Math.random() * n);
@@ -11,12 +11,12 @@ const addID = (text) => {
 const encriptador = (text) => {
   let textEncriptado = text.toLowerCase();
 
-  Object.keys(steps).forEach((step) => {
-    Object.keys(steps[step]).forEach((key) => {
+  Object.keys(stepsEncriptar).forEach((step) => {
+    Object.keys(stepsEncriptar[step]).forEach((key) => {
       while (textEncriptado.includes(key)) {
         textEncriptado = textEncriptado.replace(
           key,
-          steps[step][key][sortear()]
+          stepsEncriptar[step][key][sortear()]
         );
       }
     });
