@@ -1,7 +1,7 @@
 :root {
   --mainFont: "Raleway", sans-serif;
   --secFont: "Josefin Sans", sans-serif;
-  --dark: #260d33;
+  --dark: #1d0d33;
   --mainDark: #003f69;
   --main: #106b87;
   --mainLight: #157a8c;
@@ -113,6 +113,7 @@ main {
   .button:hover {
     transform: scale(1.01);
     background-color: var(--mainDark);
+    cursor: pointer;
   }
 }
 
@@ -121,7 +122,7 @@ main {
   background-color: rgba(115, 108, 115, 0.6);
   box-shadow: inset 0px 56px -7px rgba(115, 108, 115, 0.89);
   border-radius: 1rem;
-  padding: 3rem;
+  padding: 1.5rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -137,6 +138,24 @@ main {
   height: 150px;
   border-radius: 50%;
   box-shadow: inset 0px 56px -7px rgba(115, 108, 115, 0.89);
+}
+
+.none {
+  display: none;
+}
+
+.result--show {
+  line-height: 1.9rem;
+  margin: 0 0 2rem 0;
+  color: white;
+  font-size: 1.4rem;
+  height: 100%;
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  backdrop-filter: blur(40px);
 }
 
 @media screen and (max-width: 786px) {
